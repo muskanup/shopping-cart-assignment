@@ -1,0 +1,60 @@
+/* ------ Hero Slider --------- */
+.bx-wrapper {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+  
+section#hero-banner {
+    background: #fff;
+    margin-bottom: 20px;
+}
+  
+  /* -------- Product Section ------- */
+  
+.category-section {
+    .category-image img {
+      width: 100%;
+    }
+    .category-description {
+      padding-top: 50px;
+      text-align: center;
+    }
+}
+  
+section:nth-child(even) .category-image {
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+@media screen and (min-width: $break-mobile-large) and (max-width:$break-large){
+    .category-section .category-description{
+      padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: $break-mobile-large){
+    .category-section .category-description{
+        padding-top: 20px;
+        h2{
+          font-size: 100%;
+        }
+        p{
+          font-size: 70%;
+          padding: 15px 0px;
+        }
+    } 
+}
+
+@media screen and (max-width: $break-mobile-small){
+    .category-section .category-description{
+        padding-top: 0px;
+        h2{
+          font-size: 80%;
+        }
+        p{
+          font-size: 60%;
+          padding: 10px 0px;
+        }
+    } 
+
+}

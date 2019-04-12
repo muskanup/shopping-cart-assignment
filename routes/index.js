@@ -7,7 +7,10 @@ var prodCategories = require('../public/data/categories/index.get.json');
 router.get('/', function(req, res, next) {
   ActiveBanners = banners.filter(banner => banner.isActive);
   ActiveCategory = prodCategories.filter(category => category.enabled);
+  prodCategories.sort((a, b)=>{return a.order - b.order}); 
   res.render('index', {banners:ActiveBanners,categories:ActiveCategory});
 });
+
+
 
 module.exports = router;

@@ -1,0 +1,15 @@
+/* ------- Footer -------- */
+footer {
+    background-color: $color-grey;
+    padding: 10px 0;
+    p {
+      font-size: 80%;
+      padding: 0px;
+    }
+  }
+
+  @media screen and (max-width: $break-medium){
+    footer {
+      text-align: center;
+    }
+  }

@@ -1,0 +1,143 @@
+/* ----------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------- */
+
+$primary-color: #d10157;
+$secondary-color: #ffffff;
+$color-grey: #f0f0f0;
+
+$break-medium: 1024px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  color: #2e2e2e;
+  font-family: "Dosis", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  overflow-x: hidden;
+}
+.clearfix {
+  zoom: 1;
+  &:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  padding: 40px 0;
+}
+
+button,button:focus{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* ----------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ----------------------------------------------- */
+
+.box {
+  position: relative;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.box:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -43px;
+  width: 65%;
+  height: 6px;
+  background: #fff;
+  border-radius: 290px/8px;
+  -moz-border-radius: 290px/8px;
+  -webkit-border-radius: 290px/8px;
+  box-shadow: 0px 10px 17px #000000d9;
+  -moz-box-shadow: 0px 10px 17px #000000d9;
+  -webkit-box-shadow: 0px 10px 17px #000000d9;
+  z-index: -3;
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.width-100 {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* ----- HEADINGS ----- */
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 125%;
+}
+
+h3 {
+  font-size: 90%;
+}
+
+p {
+  font-size: 80%;
+  padding: 20px 0px;
+  font-weight: 500;
+}
+
+.button-small {
+  font-size: 65%;
+  padding: 10px;
+  background: $primary-color;
+  color: $secondary-color;
+}
+
+.button-large {
+  font-size: 80%;
+  padding: 10px;
+  background: $primary-color;
+  color: $secondary-color;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+  @media screen and (max-width: $break-medium) {
+    width: 95%;
+  }
+}

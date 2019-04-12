@@ -3,8 +3,8 @@ $(document).ready(function () {
         mode: 'fade',
         captions: true
     });
-    $(window).on('resize', function () { location.reload()});
     function mobileMenu(menuID, menulist, devicewidth) {
+        $(window).on('resize', function () {
             if ($(this).width() < devicewidth) {
                 if ($(menuID).prop('checked') == true) {
                     $(menulist).show();
@@ -25,7 +25,7 @@ $(document).ready(function () {
             } else {
                 $(menulist).show();
             }
-        
+        });
     }
     mobileMenu("#product-hamburger", ".product-categories", 991);
     mobileMenu("#header-hamburger", ".main-nav", 767);

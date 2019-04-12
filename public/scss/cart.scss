@@ -1,0 +1,102 @@
+/*----------- Cart Page ------------*/
+.cart-info{  
+    background: #eee;
+    padding: 40px 0px;
+    .cart-product-title{
+      background: $secondary-color;
+      margin: 20px 0px;
+      h2{
+        padding: 10px 0px;
+      }
+    }
+    .cart-product-image, .cart-product-details, .total-price{
+      background-color: $secondary-color;
+    }
+    .cart-product-details, .total-price{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }  
+    .cart-product-details{
+      h3{
+        padding-bottom: 20px;
+      }
+      .item-count{
+        .minus-btn svg, .plus-btn svg {
+          fill: $primary-color;
+        }
+        input{
+          width: 5%;
+          border: none;
+          text-align: center;
+        }
+        .product-price{
+          position: relative;
+          font-size: 80%;
+          padding-top: 2px;
+          width: 15%;
+          text-align: right;
+          &:before{
+            content: 'x';
+            position: absolute;
+            top: 2px;
+            left: 35px;
+          }
+        }
+      }
+    }
+    .price-guarantee{
+      margin: 20px 0px;
+      background-color: $secondary-color;
+      padding: 10px 0px;
+      img{
+        max-width: 100%;
+      }
+    }
+    .cart-checkout{
+      background: #fff;
+      box-shadow: 1px 1px 10px 1px #b7b3b3;
+      p{
+        text-align: center;
+      }
+      button{
+        margin-top: 0px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+}
+
+@media screen and (max-width: $break-tablet){
+
+  .cart-info .cart-product-details .item-count .product-price{
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: $break-mobile-large){
+  .cart-info .cart-product-details .item-count{
+    .product-price{
+      width: 50%;
+      &::before{
+        left: 50px;
+      }
+    }
+    input{
+      width: 15%;
+    }
+  }
+}
+
+@media screen and (max-width: $break-mobile-small){
+  .cart-info{
+    .total-price{
+      span{
+        font-size: 90%;
+      }
+    }
+    .cart-product-details .item-count .product-price{
+      width: 60%;
+    }
+  }
+}
