@@ -1,102 +1,94 @@
 /*----------- Cart Page ------------*/
 .cart-info{  
-    background: #eee;
-    padding: 40px 0px;
-    .cart-product-title{
-      background: $secondary-color;
-      margin: 20px 0px;
-      h2{
-        padding: 10px 0px;
-      }
-    }
-    .cart-product-image, .cart-product-details, .total-price{
-      background-color: $secondary-color;
-    }
-    .cart-product-details, .total-price{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }  
-    .cart-product-details{
-      h3{
-        padding-bottom: 20px;
-      }
-      .item-count{
-        .minus-btn svg, .plus-btn svg {
-          fill: $primary-color;
-        }
-        input{
-          width: 5%;
-          border: none;
-          text-align: center;
-        }
-        .product-price{
-          position: relative;
-          font-size: 80%;
-          padding-top: 2px;
-          width: 15%;
-          text-align: right;
-          &:before{
-            content: 'x';
-            position: absolute;
-            top: 2px;
-            left: 35px;
-          }
-        }
-      }
-    }
-    .price-guarantee{
-      margin: 20px 0px;
-      background-color: $secondary-color;
+  background: $color-bg;
+  padding: 40px 0px;
+  &__title{
+    background: $secondary-color;
+    margin: 20px 0px;
+    h2{
       padding: 10px 0px;
-      img{
-        max-width: 100%;
-      }
     }
-    .cart-checkout{
-      background: #fff;
-      box-shadow: 1px 1px 10px 1px #b7b3b3;
-      p{
-        text-align: center;
-      }
-      button{
-        margin-top: 0px;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-}
-
-@media screen and (max-width: $break-tablet){
-
-  .cart-info .cart-product-details .item-count .product-price{
-    width: 20%;
   }
-}
-
-@media screen and (max-width: $break-mobile-large){
-  .cart-info .cart-product-details .item-count{
-    .product-price{
-      width: 50%;
-      &::before{
-        left: 50px;
-      }
+  &__image, &__details, &__total-price{
+    background-color: $secondary-color;
+  }
+  &__details, &__total-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__total-price{
+    align-items: center;
+    font-size: 150%;
+  }
+  &__details{
+    .item-count{
+      align-items: center;
+    }
+    h3{
+      padding-bottom: 20px;
+    }
+    .minus-btn svg, .plus-btn svg {
+      fill: $primary-color;
+      width: 15px;
     }
     input{
-      width: 15%;
+      width: 25%;
+      border: none;
+      text-align: center;
+    }
+  }
+  &__prod-price{
+    position: relative;
+    font-size: 100%;
+    width: 50%;
+    text-align: right;
+    &:before{
+      content: 'x';
+      position: absolute;
+      top: 0px;
+      left: 50%;
+    }
+  }
+  &__guarantee{
+    margin: 20px 0px;
+    background-color: $secondary-color;
+    padding: 10px 0px;
+    img{
+      max-width: 100%;
+    }
+  }
+  &__checkout{
+    background: #fff;
+    box-shadow: 1px 1px 10px 1px #b7b3b3;
+    p{
+      text-align: center;
+    }
+    button{
+      margin-top: 0px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
 
-@media screen and (max-width: $break-mobile-small){
+
+@media screen and (min-width: $break-mobile-small){
   .cart-info{
-    .total-price{
-      span{
-        font-size: 90%;
-      }
+    &__prod-price{
+      width: 40%;
     }
-    .cart-product-details .item-count .product-price{
-      width: 60%;
+  }
+}
+
+@media screen and (min-width: $break-mobile-large){
+  .cart-info{
+    &__details input{
+      width: 10%;
+    }
+    &__prod-price{
+      width: 20%;
+      font-size: 125%;
     }
   }
 }

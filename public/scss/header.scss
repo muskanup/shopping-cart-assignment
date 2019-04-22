@@ -1,183 +1,170 @@
-/* ---- Header ---- */
-header {
-    margin-bottom: 15px;
-    box-shadow: 18px -8px 18px 8px #eee;
-    padding-top: 10px;
-    width: 100%;
-    background: #fff;
-    z-index: 999;
-    nav {
-      .main-logo img {
-        max-width: 200px;
-        width: 100%;
-      }
-      .nav-list {
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-        .nav-links {
-          width: 100%;
-          display: flex;
-          ul {
-            li {
-              padding: 12px 0px 12px 12px;
-              display: inline-flex;
-              &:first-child {
-                padding-right: 20px;
-              }
-            }
-          }
-          .left,
-          .right {
-            flex: 0 1 50%;
-          }
-          .left li {
-            padding-top: 50px;
-            font-size: 80%;
-          }
-          .right li {
-            font-size: 70%;
-            padding-top: 0px;
-            &:first-child {
-              padding-right: 10px;
-            }
-          }
-        }
-      }
-      .nav-list > span {
+.main-header{
+  margin-bottom: 15px;
+  box-shadow: 18px -8px 18px 8px $color-bg;
+  padding: 0px;
+  width: 100%;
+  background: $secondary-color;
+  z-index: 999;
+    &__logo img {
+      max-width: 200px;
+      width: 100%;
+    }
+    &__navlist{
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+    }    
+    &__navlinks {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      top: 100%;
+      right: -20px;
+      padding-bottom: 0px;
+      z-index: 999;
+      position: absolute;
+      background-color: $color-grey;
+      -webkit-box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59);
+      -moz-box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59);
+      box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59);
+    }
+    &__navlinks .left, &__navlinks .right {
+      flex: 0 1 50%;
+    }
+    &__navlinks ul li {
+      display: block;
+      list-style: initial;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 100%;
+      border-bottom: 1px solid $color-border;
+      text-align: center;
+    }
+    &__navlinks ul li:first-child {
+      padding-right: 0px;
+    }
+    &__navlist > span {
+      display: block;
+      position: absolute;
+      top: 25%;
+      right: 20%;
+    }
+    &__navlist > span a {
+      background: none;
+      padding: 0px;
+    }
+    &__carticon {
+      fill: $primary-color;
+      width: 20px;
+      display: inline-block;
+      position: relative;
+      top: 0;
+      left: 0;
+      span {
         display: block;
         position: absolute;
-        right: 10px;
-        bottom: 0px;
-        a {
-          text-decoration: none;
-          padding: 15px 35px 15px 56px;
-          background-color: #eee;
-          line-height: 1;
-          position: relative;
-          display: inline-block;
-        }
-      }
-      .cart-icon {
-        fill: $primary-color;
-        width: 30px;
-        display: inline-block;
-        position: absolute;
-        left: 16px;
-        top: 16px;
-        span {
-          display: none;
-        }
+        top: -8px;
+        right: -8px;
+        font-size: 60%;
+        background: $color-blue;
+        color: $secondary-color;
+        padding: 5px;
+        line-height: 60%;
+        border-radius: 50%;
       }
     }
-    #header-nav label,
+    &__cart-items{
+      display: none;
+    }
+    #header-nav label {
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+      padding-right: 20px;
+      font-size: 150%;
+      position: absolute;
+      top: 25%;
+      color: $color-dark;
+    }
     #header-hamburger {
       display: none;
     }
-  }
+}
 
-@media screen and (max-width: $break-tablet){
-    .nav-list > span{
+@media screen and (min-width: $break-mobile-small){
+  .main-header{
+    #header-nav label{
+      font-size: 180%;
+    }
+    &__cart-icon{
+      width: 30px;
+    }
+  } 
+}
+
+@media screen and (min-width: $break-mobile-large){
+  .main-header{
+    padding: 10px 0px 0px 0px;
+    #header-nav label, #header-hamburger {
+      display: none;
+    }
+    &__navlinks{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      position: static;
+      padding-bottom: 0px;
+      z-index: 999;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    &__navlinks ul li{
+      padding: 12px 0px 12px 12px;
+      display: inline-flex;
+      border-bottom: none;
+      &:first-child {
+        padding-right: 20px;
+      }
+    }
+    &__navlinks ul.left li {
+      padding-top: 50px;
+      font-size: 140%;
+      text-align: left;
+    }
+    &__navlinks ul.right li {
+      font-size: 100%;
+      padding-top: 0px;
+      text-align: right;
+      &:first-child {
+        padding-right: 10px;
+      }
+    }
+    &__navlist > span {
+      right: 5px;
       bottom: 0px;
-      right: 15px;
-    }
-}
-
-@media screen and (max-width: $break-mobile-large){
-    header{
-      nav{
-        .nav-list{
-          position: relative;
-        }
-        .nav-list .nav-links{
-          flex-direction: column;
-          top: 100%;
-          padding-bottom: 0px;
-          z-index: 999;
-          position: absolute;
-          background-color: #f9f9f9;
-          -webkit-box-shadow: -20px 27px 25px -42px rgba(0,0,0,0.59);
-          -moz-box-shadow: -20px 27px 25px -42px rgba(0,0,0,0.59);
-          box-shadow: -20px 27px 25px -42px rgba(0,0,0,0.59);
-        }
-        .nav-list .cart-items{
-          display: none;
-        }
-        .nav-list > span{
-          top: 20px;
-          right: 60px;
-          a{
-            background: none;
-            padding: 0px 35px 0px 56px;
-          }
-        }
-        .cart-icon{
-          position: relative;
-          top: 0;
-          left: 0;
-          span{
-            display: block;
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            font-size: 60%;
-            background: #65dbe3;
-            color: #fff;
-            padding: 5px;
-            line-height: 60%;
-            border-radius: 50%;
-          }
-        }
-        /* [SHOW HAMBURGER] */
-        .nav-list .left, .nav-list .right {
-          flex: 0 1 100%;
-          text-align: center;
-        }
-        #header-nav label {
-          display: inline-block;
-          width: 100%;
-          text-align: right;
-          padding-right: 20px;
-          font-size: 100%;
-          position: absolute;
-          bottom: 50%;
-          right: 0;
-          color: #9e9e9e;
-        }
-        /* [BREAK DOWN MENU INTO VERTICAL] */
-        #header-nav .nav-links ul li {
-          display: block;
-          list-style: initial;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          font-size: 80%;
-          border-bottom: 1px solid #bb355526;
-          &:first-child {
-            padding-right: 0px;
-          }
-        } 
-        #header-nav .nav-links ul.right li:last-child{
-          border-bottom: none;
-        }         
+      top: auto;
+      a {
+        text-decoration: none;
+        padding: 15px 35px 15px 56px;
+        background-color: $color-bg;
+        line-height: 1;
+        position: relative;
+        display: inline-block;
       }
     }
-}
-
-@media screen and (max-width: $break-mobile-medium){
-    header nav .nav-list > span {
-      top: 10px;
-    }
-}
-
-@media screen and (max-width: $break-mobile-small){
-    header nav{
-      #header-nav label{
-        margin-top: -10px;
-        bottom: 25%;
-      }
-      .nav-list > span {
-      top: 8px;
-      right: 40px;
+    &__carticon {
+      fill: $primary-color;
+      width: 30px;
+      position: absolute;
+      left: 16px;
+      top: 5px;
+      span {
+        display: none;
       }
     }
+    &__cart-items{
+      display: block;
+      font-size: 140%;
+    }
+  }
 }

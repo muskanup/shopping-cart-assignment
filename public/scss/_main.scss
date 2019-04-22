@@ -2,12 +2,6 @@
 /* BASIC SETUP */
 /* ----------------------------------------------- */
 
-$primary-color: #d10157;
-$secondary-color: #ffffff;
-$color-grey: #f0f0f0;
-
-$break-medium: 1024px;
-
 * {
   margin: 0;
   padding: 0;
@@ -15,10 +9,10 @@ $break-medium: 1024px;
 }
 html,
 body {
-  color: #2e2e2e;
+  color: $color-dark;
   font-family: "Dosis", sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 10px;
   overflow-x: hidden;
 }
 .clearfix {
@@ -46,13 +40,18 @@ li {
 }
 
 section {
-  padding: 40px 0;
+  padding: 6% 0;
 }
 
 button,button:focus{
   background: none;
   border: none;
   outline: none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
 }
 
 /* ----------------------------------------------- */
@@ -104,16 +103,16 @@ h3 {
 }
 
 h2 {
-  font-size: 125%;
+  font-size: 140%;
 }
 
 h3 {
-  font-size: 90%;
+  font-size: 120%;
 }
 
 p {
-  font-size: 80%;
-  padding: 20px 0px;
+  font-size: 100%;
+  padding: 15px 0px;
   font-weight: 500;
 }
 
@@ -125,7 +124,7 @@ p {
 }
 
 .button-large {
-  font-size: 80%;
+  font-size: 125%;
   padding: 10px;
   background: $primary-color;
   color: $secondary-color;
@@ -137,7 +136,4 @@ p {
 .wrapper {
   width: 85%;
   margin: 0 auto;
-  @media screen and (max-width: $break-medium) {
-    width: 95%;
-  }
 }
