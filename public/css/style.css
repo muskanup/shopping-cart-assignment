@@ -37,7 +37,6 @@ section {
   padding: 6% 0; }
 
 button, button:focus {
-  background: none;
   border: none;
   outline: none; }
 
@@ -194,7 +193,8 @@ p {
     display: block;
     position: absolute;
     top: 25%;
-    right: 20%; }
+    right: 20%;
+    z-index: 999; }
   .main-header__navlist > span a {
     background: none;
     padding: 0px; }
@@ -340,6 +340,9 @@ section:nth-child(even) .category-section__image {
     width: 50%; } }
 
 @media screen and (min-width: 767px) {
+  .bx-wrapper .bx-controls-direction a {
+    display: block;
+    font-size: 150%; }
   .category-section .button-small {
     width: 30%; } }
 

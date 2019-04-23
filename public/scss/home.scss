@@ -47,6 +47,10 @@ section:nth-child(even) .category-section__image{
 }
 
 @media screen and (min-width: $break-mobile-large){
+  .bx-wrapper .bx-controls-direction a {
+    display: block;
+    font-size: 150%;
+  }
   .category-section .button-small {
     width: 30%;
   }
