@@ -2,6 +2,4 @@
 > shopping-cart-assignment@0.0.0 compile:sass-dev C:\Users\musupadh\Documents\shopping-cart-assignment\shopping-cart-assignment
 > node-sass  -rw public/scss -o public/css/ -w
 
-=> changed: C:\Users\musupadh\Documents\shopping-cart-assignment\shopping-cart-assignment\public\scss\style.scss
-Rendering Complete, saving .css file...
-Wrote CSS to C:\Users\musupadh\Documents\shopping-cart-assignment\shopping-cart-assignment\public\css\style.css
+Terminate batch job (Y/N)? y
