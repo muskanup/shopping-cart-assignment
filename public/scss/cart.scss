@@ -28,9 +28,12 @@
     h3{
       padding-bottom: 20px;
     }
-    .minus-btn svg, .plus-btn svg {
-      fill: $primary-color;
-      width: 15px;
+    .minus-btn, .plus-btn{ 
+      background: none;
+      svg {
+        fill: $primary-color;
+        width: 15px;
+      }
     }
     input{
       width: 25%;

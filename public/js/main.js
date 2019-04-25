@@ -3,32 +3,6 @@ $(document).ready(function () {
         mode: 'fade',
         captions: true
     });
-    function mobileMenu(menuID, menulist, devicewidth) {
-        $(window).on('resize', function () {
-            if ($(this).width() < devicewidth) {
-                if ($(menuID).prop('checked') == true) {
-                    $(menulist).show();
-                } else {
-                    $(menulist).hide();
-                }
-                $(menuID).click(function () {
-                    if ($(this).is(":checked")) {
-                        $(menulist).slideDown("slow", function () {
-                            $(menulist).show();
-                        });
-                    } else if ($(this).is(":not(:checked)")) {
-                        $(menulist).slideUp("swing", function () {
-                            $(menulist).hide();
-                        });
-                    }
-                });
-            } else {
-                $(menulist).show();
-            }
-        });
-    }
-    mobileMenu("#product-hamburger", ".product-categories", 991);
-    mobileMenu("#header-hamburger", ".main-nav", 767);
 });
 
 function addProduct(prodid) {
@@ -53,7 +27,7 @@ function addProduct(prodid) {
 
 function changeProductCount(prodid, task, input_id) {
     console.log(prodid);
-    //addtocart
+    //plus-and-minus functionality
     let xmlReq = new XMLHttpRequest();
     xmlReq.open("GET", "/cart/changecartcount/" + prodid + "/" + task, true);
     xmlReq.onload = function () {
@@ -68,8 +42,9 @@ function changeProductCount(prodid, task, input_id) {
                 }
             });
             document.getElementById("prod_totcount").innerHTML = data.totalCounter;
-            document.getElementById("prod_checkoutprice").innerHTML = 'Rs.' + data.checkoutAmount;
-            document.getElementById("cart_counter").innerHTML = data.totalCounter;
+            document.getElementById("prod_checkoutprice").innerHTML = 'Rs.' + data.checkoutAmount + ' >';
+            document.getElementById("cart_counter").innerHTML = data.totalCounter + ' item';
+            document.getElementById("cart_counter_mobile").innerHTML = data.totalCounter;
         } else {
             console.log("We connected to the server, but it returned an error.");
         }

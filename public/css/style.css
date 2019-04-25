@@ -25,9 +25,9 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
   a:active {
-    color: inherit;
     text-decoration: none; }
 
 li {
@@ -85,6 +85,9 @@ h3 {
   text-transform: capitalize;
   font-weight: 700; }
 
+h1 {
+  font-size: 160%; }
+
 h2 {
   font-size: 140%; }
 
@@ -126,16 +129,20 @@ p {
 @media screen and (min-width: 767px) {
   section {
     padding: 3% 0; }
+  h1 {
+    font-size: 180%; }
   h2 {
     font-size: 160%; }
   h3 {
     font-size: 140%; }
-  p, li {
+  p, li, input {
     font-size: 120%; } }
 
 @media screen and (min-width: 1024px) {
   .button-small {
     font-size: 120%; }
+  h1 {
+    font-size: 200%; }
   h2 {
     font-size: 180%; }
   h3 {
@@ -143,7 +150,7 @@ p {
   p {
     font-size: 140%;
     padding: 20px 0px; }
-  li {
+  li, input {
     font-size: 140%; } }
 
 @media screen and (max-width: 1024px) {
@@ -165,7 +172,7 @@ p {
     flex-wrap: wrap;
     position: relative; }
   .main-header__navlinks {
-    display: flex;
+    display: none;
     width: 100%;
     flex-direction: column;
     top: 100%;
@@ -200,7 +207,7 @@ p {
     padding: 0px; }
   .main-header__carticon {
     fill: #d10157;
-    width: 20px;
+    width: 25px;
     display: inline-block;
     position: relative;
     top: 0;
@@ -210,12 +217,15 @@ p {
       position: absolute;
       top: -8px;
       right: -8px;
-      font-size: 60%;
+      font-size: 100%;
       background: #65dbe3;
       color: #ffffff;
-      padding: 5px;
-      line-height: 60%;
-      border-radius: 50%; }
+      line-height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      font-style: initial;
+      width: 15px;
+      height: 15px; }
   .main-header__cart-items {
     display: none; }
   .main-header #header-nav label {
@@ -223,18 +233,31 @@ p {
     width: 100%;
     text-align: right;
     padding-right: 20px;
-    font-size: 150%;
+    font-size: 175%;
     position: absolute;
     top: 25%;
     color: #2e2e2e; }
   .main-header #header-hamburger {
     display: none; }
+  .main-header #header-hamburger:checked ~ .main-header__navlinks {
+    display: flex; }
 
 @media screen and (min-width: 480px) {
   .main-header #header-nav label {
     font-size: 180%; }
   .main-header__cart-icon {
-    width: 30px; } }
+    width: 30px; }
+  .main-header__navlist > span {
+    right: 18%; }
+  .main-header__carticon {
+    width: 30px; }
+    .main-header__carticon span {
+      top: -11px;
+      right: -11px;
+      font-size: 100%;
+      line-height: 18px;
+      width: 18px;
+      height: 18px; } }
 
 @media screen and (min-width: 767px) {
   .main-header {
@@ -368,8 +391,7 @@ section:nth-child(even) .category-section__image {
   top: 18px;
   color: rgba(0, 0, 0, 0.3);
   transform-origin: left;
-  transition: all 0.3s ease;
-  font-size: 70%; }
+  transition: all 0.3s ease; }
 
 .login-info input,
 .register-info input {
@@ -422,6 +444,7 @@ section:nth-child(even) .category-section__image {
 
 /* ------ Product Description Page ------- */
 .product-listing__prod-categories {
+  display: none;
   padding-top: 20px; }
   .product-listing__prod-categories li:after {
     content: "";
@@ -471,12 +494,6 @@ section:nth-child(even) .category-section__image {
   text-align: center;
   margin-top: 10px; }
 
-/* Product Category Menu */
-/* [HAMBURGER - HIDDEN ON BIG SCREENS] */
-#page-nav label {
-  display: block; }
-
-/* [SHOW HAMBURGER] */
 #page-nav label {
   display: block;
   width: 100%;
@@ -502,18 +519,13 @@ section:nth-child(even) .category-section__image {
   margin-top: 0px;
   position: relative; }
 
-/* [BREAK DOWN MENU INTO VERTICAL] */
-#page-nav ul li {
-  display: block;
-  padding-left: 10px; }
-
-#page-nav input {
+#product-hamburger {
   display: none; }
 
-/* [SHOW/HIDE MENU ON CHECKBOX CLICK] */
-#page-nav input:checked ~ ul {
+#product-hamburger:checked ~ .product-listing__prod-categories {
   display: block;
-  box-shadow: 0px 0px 15px 1px #eeeeee; }
+  box-shadow: 0px 0px 15px 1px #eeeeee;
+  padding-left: 10px; }
 
 /*  Responsive Screen */
 @media screen and (min-width: 600px) {
@@ -575,9 +587,11 @@ section:nth-child(even) .category-section__image {
     align-items: center; }
   .cart-info__details h3 {
     padding-bottom: 20px; }
-  .cart-info__details .minus-btn svg, .cart-info__details .plus-btn svg {
-    fill: #d10157;
-    width: 15px; }
+  .cart-info__details .minus-btn, .cart-info__details .plus-btn {
+    background: none; }
+    .cart-info__details .minus-btn svg, .cart-info__details .plus-btn svg {
+      fill: #d10157;
+      width: 15px; }
   .cart-info__details input {
     width: 25%;
     border: none;

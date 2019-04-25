@@ -15,7 +15,7 @@
       position: relative;
     }    
     &__navlinks {
-      display: flex;
+      display: none;
       width: 100%;
       flex-direction: column;
       top: 100%;
@@ -56,7 +56,7 @@
     }
     &__carticon {
       fill: $primary-color;
-      width: 20px;
+      width: 25px;
       display: inline-block;
       position: relative;
       top: 0;
@@ -66,12 +66,15 @@
         position: absolute;
         top: -8px;
         right: -8px;
-        font-size: 60%;
+        font-size: 100%;
         background: $color-blue;
         color: $secondary-color;
-        padding: 5px;
-        line-height: 60%;
+        line-height: 15px;
         border-radius: 50%;
+        text-align: center;
+        font-style: initial;
+        width: 15px;
+        height: 15px;
       }
     }
     &__cart-items{
@@ -82,13 +85,16 @@
       width: 100%;
       text-align: right;
       padding-right: 20px;
-      font-size: 150%;
+      font-size: 175%;
       position: absolute;
       top: 25%;
       color: $color-dark;
     }
     #header-hamburger {
       display: none;
+    }
+    #header-hamburger:checked~.main-header__navlinks{
+      display: flex;
     }
 }
 
@@ -99,6 +105,20 @@
     }
     &__cart-icon{
       width: 30px;
+    }
+    &__navlist > span{
+      right: 18%;
+    }
+    &__carticon{
+      width: 30px;
+      span {
+        top: -11px;
+        right: -11px;
+        font-size: 100%;
+        line-height: 18px;
+        width: 18px;
+        height: 18px;
+      }
     }
   } 
 }

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next){
     res.render('product-listing', {products:prodListing,categories:ActiveCategories,totalCounter:totalCounter.total_item_count});
 })
 
-/* GET product listing. */
+/* GET category listing. */
 router.get('/:id', function(req, res, next){
     var CatId = req.params.id;
     CategoryProducts = prodListing.filter(product => product.category==CatId);

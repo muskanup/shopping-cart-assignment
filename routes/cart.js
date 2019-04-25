@@ -11,30 +11,25 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/addtocart/:id', function (req, res, next) { 
-    // totalCounter.total_item_count=0;
+    var count_flag = 0;
     prodListing.forEach(element => {
         if (element.id === req.params.id) {
             if (element.count == undefined) {
                 element.count = 1;
                 element.totalprice = element.price * element.count;
                 checkoutAmount = checkoutAmount + element.price;
-                // element.price = element.price * element.count;
                 prodSelected.push(element);
-                console.log(totalCounter, 'if');  
-
             } else {
                 element.count = element.count + 1;
                 element.totalprice = element.price * element.count;
                 checkoutAmount = checkoutAmount + element.price;
-                console.log(totalCounter, 'else');  
             }
-            totalCounter.total_item_count = totalCounter.total_item_count + element.count;
-           // console.log(totalCount);        
         }        
     });
-
-
-
+    prodSelected.forEach(element => {
+        count_flag = count_flag + element['count'];
+        totalCounter.total_item_count = count_flag;
+    });
     res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
 });
 
@@ -48,7 +43,6 @@ router.get('/changecartcount/:id/:task', function (req, res, next) {
                 checkoutAmount = checkoutAmount + element.price;
             }
             totalCounter.total_item_count = totalCounter.total_item_count + element.count;
-            //console.log(totalCount);
         });
 
         res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
@@ -60,10 +54,7 @@ router.get('/changecartcount/:id/:task', function (req, res, next) {
                 element.totalprice = element.price * element.count;
                 checkoutAmount = checkoutAmount - element.price;         
             }
-            totalCounter.total_item_count = totalCounter.total_item_count + element.count;
-            // console.log(totalCount);      
-
-
+            totalCounter.total_item_count = totalCounter.total_item_count + element.count;   
         });
         res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
     }

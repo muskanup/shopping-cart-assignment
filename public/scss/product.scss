@@ -2,6 +2,7 @@
 
 .product-listing{
   &__prod-categories {
+    display: none;
     padding-top: 20px;
     li {
       &:after {
@@ -63,16 +64,6 @@
     }
   }
 }
-  
-  /* Product Category Menu */
-  
-  /* [HAMBURGER - HIDDEN ON BIG SCREENS] */
-
-
-  #page-nav label{
-    display: block;
-  }
-  /* [SHOW HAMBURGER] */
   #page-nav label {
     display: block;
     width: 100%;
@@ -99,20 +90,14 @@
     position: relative;
   }
 
-  /* [BREAK DOWN MENU INTO VERTICAL] */
-  #page-nav ul li {
-    display: block;
-    padding-left: 10px;
-  }
-
-  #page-nav input{
+  #product-hamburger{
     display: none;
   }
 
-  /* [SHOW/HIDE MENU ON CHECKBOX CLICK] */
-  #page-nav input:checked ~ ul {
+  #product-hamburger:checked~.product-listing__prod-categories{
     display: block;
     box-shadow: 0px 0px 15px 1px $color-bg;
+    padding-left: 10px;
   }
 
   /*  Responsive Screen */
