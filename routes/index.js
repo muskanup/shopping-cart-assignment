@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var banners = require('../public/data/banners/index.get.json');
-var prodCategories = require('../public/data/categories/index.get.json');
-var totalCounter = require('./constant');
+let express = require('express');
+let router = express.Router();
+let banners = require('../public/data/banners/index.get.json');
+let prodCategories = require('../public/data/categories/index.get.json');
+let totalCounter = require('./constant');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

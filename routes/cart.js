@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var prodListing = require('../public/data/products/index.get.json');
-var totalCounter = require('./constant');
-var prodSelected = [];
-var checkoutAmount = 0;
+let express = require('express');
+let router = express.Router();
+let prodListing = require('../public/data/products/index.get.json');
+let totalCounter = require('./constant');
+let prodSelected = [];
+let checkoutAmount = 0;
 
 /* GET cart page. */
 router.get('/', function (req, res, next) {
@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/addtocart/:id', function (req, res, next) { 
-    var count_flag = 0;
+    let count_flag = 0;
     prodListing.forEach(element => {
         if (element.id === req.params.id) {
             if (element.count == undefined) {
@@ -59,4 +59,5 @@ router.get('/changecartcount/:id/:task', function (req, res, next) {
         res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
     }
 });
+
 module.exports = router;
