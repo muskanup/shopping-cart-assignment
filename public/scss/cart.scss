@@ -1,4 +1,4 @@
-/*----------- Cart Page ------------*/
+/* ------- Cart Page -------- */
 .cart-info{  
   background: $color-bg;
   padding: 40px 0px;
@@ -75,7 +75,7 @@
   }
 }
 
-
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: $break-mobile-small){
   .cart-info{
     &__prod-price{

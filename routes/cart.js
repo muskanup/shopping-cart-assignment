@@ -4,10 +4,25 @@ let prodListing = require('../public/data/products/index.get.json');
 let totalCounter = require('./constant');
 let prodSelected = [];
 let checkoutAmount = 0;
+let commonContent = require('./strings');
 
 /* GET cart page. */
 router.get('/', function (req, res, next) {
-    res.render('cart',{productselect: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count});
+    res.render('cart',
+    {
+        productselect: prodSelected, 
+        checkoutAmount: checkoutAmount, 
+        totalCounter:totalCounter.total_item_count, 
+        footerContent: commonContent.Copyright,
+        menuHome : commonContent.Home_Menu,
+        menuProduct : commonContent.Product_Menu,
+        menuLogin : commonContent.Login_Menu,
+        menuRegister : commonContent.Register_Menu,
+        cartItem : commonContent.Cart_Item,
+        priceGuarantee : commonContent.Price_Guarantee,
+        cartPromocode : commonContent.Cart_Promocode,
+        checkoutBtn : commonContent.Checkout_Btn
+    });
 });
 
 router.get('/addtocart/:id', function (req, res, next) { 
@@ -59,5 +74,4 @@ router.get('/changecartcount/:id/:task', function (req, res, next) {
         res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
     }
 });
-
 module.exports = router;

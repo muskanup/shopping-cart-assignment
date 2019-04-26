@@ -54,6 +54,33 @@ img{
   height: auto;
 }
 
+p {
+  font-size: 100%;
+  padding: 15px 0px;
+  font-weight: 500;
+}
+
+/* ----- HEADINGS ----- */
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+h1{
+  font-size: 160%;
+}
+
+h2 {
+  font-size: 140%;
+}
+
+h3 {
+  font-size: 120%;
+}
+
 /* ----------------------------------------------- */
 /* REUSABLE COMPONENTS */
 /* ----------------------------------------------- */
@@ -93,33 +120,6 @@ img{
   width: 100%;
 }
 
-/* ----- HEADINGS ----- */
-
-h1,
-h2,
-h3 {
-  text-transform: capitalize;
-  font-weight: 700;
-}
-
-h1{
-  font-size: 160%;
-}
-
-h2 {
-  font-size: 140%;
-}
-
-h3 {
-  font-size: 120%;
-}
-
-p {
-  font-size: 100%;
-  padding: 15px 0px;
-  font-weight: 500;
-}
-
 .button-small {
   font-size: 65%;
   padding: 10px;
@@ -141,3 +141,6 @@ p {
   width: 85%;
   margin: 0 auto;
 }
+
+
+

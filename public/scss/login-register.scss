@@ -61,6 +61,8 @@
   }
 }
 
+/* ------- Responsive Screens -------- */
+
 @media screen and (min-width: $break-mobile-medium){
   .login-info,
   .register-info {
@@ -69,7 +71,6 @@
     }
   }
 }
-
 
 @media screen and (min-width: $break-tablet){
   .login-info,

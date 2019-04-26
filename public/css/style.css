@@ -44,6 +44,27 @@ img {
   max-width: 100%;
   height: auto; }
 
+p {
+  font-size: 100%;
+  padding: 15px 0px;
+  font-weight: 500; }
+
+/* ----- HEADINGS ----- */
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  font-weight: 700; }
+
+h1 {
+  font-size: 160%; }
+
+h2 {
+  font-size: 140%; }
+
+h3 {
+  font-size: 120%; }
+
 /* ----------------------------------------------- */
 /* REUSABLE COMPONENTS */
 /* ----------------------------------------------- */
@@ -77,27 +98,6 @@ img {
 .width-100 {
   max-width: 100%;
   width: 100%; }
-
-/* ----- HEADINGS ----- */
-h1,
-h2,
-h3 {
-  text-transform: capitalize;
-  font-weight: 700; }
-
-h1 {
-  font-size: 160%; }
-
-h2 {
-  font-size: 140%; }
-
-h3 {
-  font-size: 120%; }
-
-p {
-  font-size: 100%;
-  padding: 15px 0px;
-  font-weight: 500; }
 
 .button-small {
   font-size: 65%;
@@ -157,6 +157,7 @@ p {
   .wrapper {
     width: 95%; } }
 
+/* ------- Header -------- */
 .main-header {
   margin-bottom: 15px;
   box-shadow: 18px -8px 18px 8px #eeeeee;
@@ -171,6 +172,15 @@ p {
     display: flex;
     flex-wrap: wrap;
     position: relative; }
+    .main-header__navlist > span {
+      display: block;
+      position: absolute;
+      top: 25%;
+      right: 20%;
+      z-index: 999; }
+      .main-header__navlist > span a {
+        background: none;
+        padding: 0px; }
   .main-header__navlinks {
     display: none;
     width: 100%;
@@ -184,27 +194,17 @@ p {
     -webkit-box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59);
     box-shadow: -20px 27px 25px -42px rgba(0, 0, 0, 0.59); }
-  .main-header__navlinks .left, .main-header__navlinks .right {
-    flex: 0 1 50%; }
-  .main-header__navlinks ul li {
-    display: block;
-    list-style: initial;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 100%;
-    border-bottom: 1px solid #bb355526;
-    text-align: center; }
-  .main-header__navlinks ul li:first-child {
-    padding-right: 0px; }
-  .main-header__navlist > span {
-    display: block;
-    position: absolute;
-    top: 25%;
-    right: 20%;
-    z-index: 999; }
-  .main-header__navlist > span a {
-    background: none;
-    padding: 0px; }
+    .main-header__navlinks .left, .main-header__navlinks .right {
+      flex: 0 1 50%; }
+    .main-header__navlinks li {
+      display: block;
+      list-style: initial;
+      padding: 10px 0px;
+      font-size: 100%;
+      border-bottom: 1px solid #bb355526;
+      text-align: center; }
+    .main-header__navlinks li:first-child {
+      padding-right: 0px; }
   .main-header__carticon {
     fill: #d10157;
     width: 25px;
@@ -242,6 +242,7 @@ p {
   .main-header #header-hamburger:checked ~ .main-header__navlinks {
     display: flex; }
 
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 480px) {
   .main-header #header-nav label {
     font-size: 180%; }
@@ -266,10 +267,8 @@ p {
       display: none; }
     .main-header__navlinks {
       display: flex;
-      width: 100%;
       flex-direction: row;
       position: static;
-      padding-bottom: 0px;
       z-index: 999;
       background-color: transparent;
       box-shadow: none; }
@@ -320,6 +319,7 @@ footer {
   footer p {
     padding: 0px; }
 
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 1024px) {
   footer {
     text-align: left;
@@ -358,6 +358,7 @@ section:nth-child(even) .category-section__image {
   -ms-flex-order: 2;
   order: 2; }
 
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 480px) {
   .category-section .button-small {
     width: 50%; } }
@@ -429,6 +430,7 @@ section:nth-child(even) .category-section__image {
 .register-info input:focus ~ .after {
   background-position: 0 0; }
 
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 600px) {
   .login-info form,
   .register-info form {
@@ -443,6 +445,29 @@ section:nth-child(even) .category-section__image {
     text-align: left; } }
 
 /* ------ Product Description Page ------- */
+.product-listing__prod-filter {
+  margin-top: 0px;
+  position: relative; }
+  .product-listing__prod-filter label {
+    display: block;
+    width: 100%;
+    position: relative;
+    top: 0;
+    font-size: 120%;
+    background: #d10157;
+    color: #ffffff;
+    padding: 15px 10px; }
+  .product-listing__prod-filter label:after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 15px;
+    color: #ffffff;
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    transform: rotate(-45deg); }
+
 .product-listing__prod-categories {
   display: none;
   padding-top: 20px; }
@@ -494,31 +519,6 @@ section:nth-child(even) .category-section__image {
   text-align: center;
   margin-top: 10px; }
 
-#page-nav label {
-  display: block;
-  width: 100%;
-  position: relative;
-  top: 0;
-  font-size: 120%;
-  background: #d10157;
-  color: #ffffff;
-  padding: 15px 10px; }
-
-#page-nav label:after {
-  content: '';
-  width: 14px;
-  height: 14px;
-  position: absolute;
-  right: 15px;
-  color: #ffffff;
-  border-left: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-  transform: rotate(-45deg); }
-
-#page-nav {
-  margin-top: 0px;
-  position: relative; }
-
 #product-hamburger {
   display: none; }
 
@@ -527,7 +527,7 @@ section:nth-child(even) .category-section__image {
   box-shadow: 0px 0px 15px 1px #eeeeee;
   padding-left: 10px; }
 
-/*  Responsive Screen */
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 600px) {
   .product-listing__product-box h3 {
     font-size: 160%; }
@@ -535,7 +535,7 @@ section:nth-child(even) .category-section__image {
     font-size: 120%; } }
 
 @media screen and (min-width: 767px) {
-  .product-listing #page-nav label {
+  .product-listing__prod-filter label {
     display: none; }
   .product-listing__prod-categories {
     display: block; } }
@@ -565,7 +565,7 @@ section:nth-child(even) .category-section__image {
   .product-listing__prod-categories li:after {
     width: 90%; } }
 
-/*----------- Cart Page ------------*/
+/* ------- Cart Page -------- */
 .cart-info {
   background: #eeeeee;
   padding: 40px 0px; }
@@ -622,6 +622,7 @@ section:nth-child(even) .category-section__image {
       display: flex;
       justify-content: space-between; }
 
+/* ------- Responsive Screens -------- */
 @media screen and (min-width: 480px) {
   .cart-info__prod-price {
     width: 40%; } }

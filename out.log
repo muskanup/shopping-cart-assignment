@@ -1,5 +1,0 @@
-
-> shopping-cart-assignment@0.0.0 compile:sass-dev C:\Users\musupadh\Documents\shopping-cart-assignment\shopping-cart-assignment
-> node-sass  -rw public/scss -o public/css/ -w
-
-Terminate batch job (Y/N)? Terminate batch job (Y/N)? y

@@ -1,39 +1,39 @@
-<section class="register-info" id="login-wrapper">
+<section class="register-info">
     <div class="wrapper">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6 register-info__heading">
-                <h1>Signup</h1>
-                <p>We do not share your personal details with anyone.</p>
+                <h1>{{registerHeading}}</h1>
+                <p>{{registerDesc}}</p>
             </div>
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 register-info__form">
                 <form action="#" autocomplete="off">
                     <fieldset>
                         <input id="firstname" type="text" name="firstname" required>
-                        <label for="firstname">First Name</label>
+                        <label for="firstname">{{firstName}}</label>
                         <div class="after"></div>
                     </fieldset>
                     <fieldset>
                         <input id="lastname" type="text" name="lastname" required>
-                        <label for="lastname">Last Name</label>
+                        <label for="lastname">{{lastName}}</label>
                         <div class="after"></div>
                     </fieldset>
                     <fieldset>
                         <input id="email" type="email" name="email" required>
-                        <label for="email">Email</label>
+                        <label for="email">{{Email}}</label>
                         <div class="after"></div>
                     </fieldset>
                     <fieldset>
                         <input id="password" type="password" name="password" required>
-                        <label for="password">Password</label>
+                        <label for="password">{{Password}}</label>
                         <div class="after"></div>
                     </fieldset>
                     <fieldset>
                         <input id="conf-password" type="password" name="conf-password" required>
-                        <label for="conf-password">Confirm Password</label>
+                        <label for="conf-password">{{confPassword}}</label>
                         <div class="after"></div>
                     </fieldset>
                     <fieldset>
-                        <button class="button-large">Signup</button>
+                        <button class="button-large">{{registerBtn}}</button>
                     </fieldset>
                 </form>
             </div>
