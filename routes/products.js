@@ -2,8 +2,8 @@ let express = require('express');
 let router = express.Router();
 let prodListing = require('../public/data/products/index.get.json');
 let prodCategories = require('../public/data/categories/index.get.json');
-let totalCounter = require('./constant');
-let commonContent = require('./strings');
+let totalCounter = require('./data/constant');
+let commonContent = require('./data/strings');
 
 /* GET product listing. */
 router.get('/', function(req, res, next){    
@@ -13,14 +13,14 @@ router.get('/', function(req, res, next){
         products:prodListing,
         categories:ActiveCategories,
         totalCounter:totalCounter.total_item_count, 
-        footerContent: commonContent.Copyright, 
-        buyButton: commonContent.Buy_Button,
-        mrpProd: commonContent.MRP,
-        menuHome : commonContent.Home_Menu,
-        menuProduct : commonContent.Product_Menu,
-        menuLogin : commonContent.Login_Menu,
-        menuRegister : commonContent.Register_Menu,
-        cartItem : commonContent.Cart_Item
+        footerContent: commonContent.footer.Copyright, 
+        buyButton: commonContent.product.Buy_Button,
+        mrpProd: commonContent.product.MRP,
+        menuHome : commonContent.header.Home_Menu,
+        menuProduct : commonContent.header.Product_Menu,
+        menuLogin : commonContent.header.Login_Menu,
+        menuRegister : commonContent.header.Register_Menu,
+        cartItem : commonContent.header.Cart_Item
     });
 })
 
@@ -34,13 +34,14 @@ router.get('/:id', function(req, res, next){
         products:CategoryProducts,
         categories:ActiveCategories,
         totalCounter:totalCounter.total_item_count,
-        prodContent: commonContent.Buy_Button,
-        mrpProd: commonContent.MRP,
-        menuHome : commonContent.Home_Menu,
-        menuProduct : commonContent.Product_Menu,
-        menuLogin : commonContent.Login_Menu,
-        menuRegister : commonContent.Register_Menu,
-        cartItem : commonContent.Cart_Item
+        footerContent: commonContent.footer.Copyright, 
+        prodContent: commonContent.product.Buy_Button,
+        mrpProd: commonContent.product.MRP,
+        menuHome : commonContent.header.Home_Menu,
+        menuProduct : commonContent.header.Product_Menu,
+        menuLogin : commonContent.header.Login_Menu,
+        menuRegister : commonContent.header.Register_Menu,
+        cartItem : commonContent.header.Cart_Item
     });
 })
 

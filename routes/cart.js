@@ -1,10 +1,11 @@
 let express = require('express');
 let router = express.Router();
 let prodListing = require('../public/data/products/index.get.json');
-let totalCounter = require('./constant');
+let totalCounter = require('./data/constant');
+let commonContent = require('./data/strings');
 let prodSelected = [];
 let checkoutAmount = 0;
-let commonContent = require('./strings');
+
 
 /* GET cart page. */
 router.get('/', function (req, res, next) {
@@ -13,18 +14,21 @@ router.get('/', function (req, res, next) {
         productselect: prodSelected, 
         checkoutAmount: checkoutAmount, 
         totalCounter:totalCounter.total_item_count, 
-        footerContent: commonContent.Copyright,
-        menuHome : commonContent.Home_Menu,
-        menuProduct : commonContent.Product_Menu,
-        menuLogin : commonContent.Login_Menu,
-        menuRegister : commonContent.Register_Menu,
-        cartItem : commonContent.Cart_Item,
-        priceGuarantee : commonContent.Price_Guarantee,
-        cartPromocode : commonContent.Cart_Promocode,
-        checkoutBtn : commonContent.Checkout_Btn
+        footerContent: commonContent.footer.Copyright,
+        menuHome : commonContent.header.Home_Menu,
+        menuProduct : commonContent.header.Product_Menu,
+        menuLogin : commonContent.header.Login_Menu,
+        menuRegister : commonContent.header.Register_Menu,
+        cartItem : commonContent.header.Cart_Item,
+        priceGuarantee : commonContent.cart.Price_Guarantee,
+        cartTitle : commonContent.cart.Cart_Title,
+        cartPromocode : commonContent.cart.Cart_Promocode,
+        checkoutBtn : commonContent.cart.Checkout_Btn,
+        emptyCart: commonContent.cart.Cart_Empty
     });
 });
 
+/* Add to cart on button cliick */
 router.get('/addtocart/:id', function (req, res, next) { 
     let count_flag = 0;
     prodListing.forEach(element => {
@@ -48,6 +52,7 @@ router.get('/addtocart/:id', function (req, res, next) {
     res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
 });
 
+/* Change cart count */
 router.get('/changecartcount/:id/:task', function (req, res, next) {
     totalCounter.total_item_count = 0;
     if(req.params.task == "plus"){
@@ -63,11 +68,12 @@ router.get('/changecartcount/:id/:task', function (req, res, next) {
         res.end(JSON.stringify({ id: req.params.id, element: prodSelected, checkoutAmount: checkoutAmount, totalCounter:totalCounter.total_item_count}));
     }
     else if(req.params.task == "minus"){
+        console.log(prodSelected, "Before");
         prodSelected.forEach(element => {
             if (element.id === req.params.id) {
                 element.count = element.count - 1;
                 element.totalprice = element.price * element.count;
-                checkoutAmount = checkoutAmount - element.price;         
+                checkoutAmount = checkoutAmount - element.price;   
             }
             totalCounter.total_item_count = totalCounter.total_item_count + element.count;   
         });

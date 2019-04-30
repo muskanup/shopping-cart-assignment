@@ -2,12 +2,60 @@
 $(document).ready(function () {
   $('.bxslider').bxSlider({
     mode: 'fade',
-    captions: true
+    auto: 'true'
   });
 });
 
+// Login & register
+function validateLogin() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  if (email == "sabka@gmail.com" && password == "sabkabazar") {
+    alert('Welcome back!');
+    return true;
+  } else {
+    alert("Email and password are incorrect.");
+  }
+}
+
+function validateRegister() {
+  let fname = document.getElementById("firstname").value;
+  let lname = document.getElementById("lastname").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let cpassword = document.getElementById("conf-password").value;
+  let letterNumber = /^[0-9a-zA-Z]+$/;
+  let emailCheck = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (fname == '' || lname == '' || email == '' || password == '' || cpassword == '') {
+    alert("Please fill all the fields");
+  } else if (!email.match(emailCheck)) {
+    alert("Enter valid Email Id");
+  } else if (password.length < 6) {
+    alert("Password must be greater or equal to 6");
+  } else if (!password.match(letterNumber)) {
+    alert("Password must only have numbers and letters");
+  } else if (password != cpassword) {
+    alert("Your passwords don't match. Try again.");
+  } else {
+    let registerObj = {
+      name: fname,
+      lname: lname,
+      email: email,
+      pwd: password,
+      cnpwd: cpassword
+    };
+    signup(registerObj);
+  }
+}
+
+function signup(registerObj) {
+  let uname = registerObj.name;
+  alert("Hello" + " " + uname + " " + "Welcome to Sabka Bazar");
+  window.location.href = "/";
+}
+
 // Cart Functionality
-var buyProduct = function () {
+let buyProduct = function () {
   return {
     addProduct: function (prodid) {
       //addtocart
